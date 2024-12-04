@@ -21,7 +21,7 @@ from keyboard import volumedown,volumeup
 engine = pyttsx3.init()
 voice_id = 0
 
-openai.api_key = apikey
+openai.api_key = AIzaSyBGrTakhrSaCQaW76NSftbJ0axRUwI9UdU
 chatStr = ""
 def chat(query):
     global chatStr
@@ -32,7 +32,7 @@ def chat(query):
         model_index = current_second % len(models)  
         client = openai.ChatCompletion.create(
             model=models[model_index],
-            messages=[{"role": "system", "content": "Please act as an AI assistant named Jarvis created by 'JADHAV AVINASH'. Listen and respond to user commands and inquiries in a helpful and efficient manner. Perform tasks such as setting reminders, answering questions, providing information, and executing basic tasks. Use a friendly and professional tone throughout."}, {"role": "user", "content": query}],
+            messages=[{"role": "system", "content": "Please act as an AI assistant named Jarvis created by 'Varma'. Listen and respond to user commands and inquiries in a helpful and efficient manner. Perform tasks such as setting reminders, answering questions, providing information, and executing basic tasks. Use a friendly and professional tone throughout."}, {"role": "user", "content": query}],
             temperature=0.7,
             max_tokens=450,
             n=1,
@@ -40,7 +40,7 @@ def chat(query):
         )
         
         response = client.choices[0].message
-        chatStr += f"Avinash: {query}\n Jarvis: {response['content']}\n"
+        chatStr += f"varma: {query}\n Jarvis: {response['content']}\n"
 
         try:
             print(response['content'])
